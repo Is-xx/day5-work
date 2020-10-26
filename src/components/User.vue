@@ -30,6 +30,7 @@ export default {
     name: "User",
     data() {
         return {
+            num: 1,
             name: '',
             age: '',
             msg: '',
@@ -39,9 +40,10 @@ export default {
     methods: {
         add_user() {
             if (this.name && this.age && this.msg) {
-                let person = {id: this.users.length+1, name: this.name, age: this.age, msg: this.msg};
+                let person = {id: this.num, name: this.name, age: this.age, msg: this.msg};
                 this.users.push(person);
                 localStorage.users = JSON.stringify(this.users);
+                this.num++;
                 this.name = '';
                 this.age = '';
                 this.msg = '';
